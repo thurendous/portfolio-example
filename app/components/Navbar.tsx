@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { assets } from "@/assets/assets";
 
 
 const Navbar = () => {
     const sideMenuRef = useRef<HTMLUListElement>(null);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const openMenu = () => {
         sideMenuRef.current?.classList.remove("translate-x-full");
@@ -18,16 +19,27 @@ const Navbar = () => {
         sideMenuRef.current?.classList.add("translate-x-full");
     }
 
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        });
+    }, []);
+
   return (
     <>
         <div className="fixed top-0 left-0 w-11/12 -z-10 translate-y-[-80%]">
             <Image src={assets.header_bg_color} alt="header-image" className="w-full h-full object-cover" />
         </div>
-      <nav className="flex items-center justify-between px-5 w-full fixed lg:px-8 xl:px-[8%] py-4">
+      <nav className={`flex items-center justify-between px-5 w-full fixed lg:px-8 xl:px-[8%] z-50 py-4 ${isScrolled ? "bg-white bg-opacity-10 backdrop-blur-lg shadow-sm" : ""}`}>
         <a href="/">
           <Image src={assets.logo} alt="logo" className="w-28 cursor-pointer mr-14" />
         </a>
-        <ul className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm opacity-50">
+        <ul className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm opacity-50 ${isScrolled ? "" : "bg-white bg-opacity-20"}`}>
             <li>
                 <a href="/" className="font-ovo">Home</a>
             </li>
@@ -35,7 +47,7 @@ const Navbar = () => {
                 <a href="#about" className="font-ovo">About me</a>
             </li>
             <li>
-                <a href="/" className="font-ovo">Services</a>
+                <a href="#services" className="font-ovo">Services</a>
             </li>
             <li>
                 <a href="/" className="font-ovo">My Work</a>
