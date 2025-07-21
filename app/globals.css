@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-lighthover: #fcf4ff;
   --color-darkhover: #2a004a;

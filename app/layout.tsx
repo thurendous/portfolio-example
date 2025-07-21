@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ThemeProvider from "./theme/themeProvider";
 import { Outfit, Ovo } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
@@ -24,10 +25,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden`}
+        className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden bg-white text-gray-900 dark:bg-darktheme dark:text-white`}
       >
-        <Navbar />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -50,10 +50,10 @@ const Navbar = () => {
                 <a href="#services" className="font-ovo">Services</a>
             </li>
             <li>
-                <a href="/" className="font-ovo">My Work</a>
+                <a href="#work" className="font-ovo">My Work</a>
             </li>
             <li>
-                <a href="/" className="font-ovo">Contact Me</a>
+                <a href="#contact" className="font-ovo">Contact Me</a>
             </li>
         </ul>
 
