@@ -42,3 +42,7 @@ This is the referenced [source](https://zenn.dev/nakamura196/articles/d241c816ec
 ```shell
 npm install next-themes
 ```
+
+## Animations
+
+The [source](https://motion.dev/docs/react).
