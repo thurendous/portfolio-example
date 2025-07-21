@@ -30,7 +30,6 @@ const About = () => {
               >
                 <Image src={icon} alt={title} className="w-7 mt-3" />
                 <h3 className="text-lg font-ovo mt-3">{title}</h3>
-                {/* <Image src={iconDark} alt={title} className="w-6 h-6 hidden dark:block" /> */}
                 <p className="text-sm font-ovo mt-3">{description}</p>
               </li>
             ))}

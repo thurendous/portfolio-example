@@ -1,8 +1,16 @@
+'use client';
+
 import { assets } from "@/assets/assets";
 import Image from "next/image";
 import React from "react";
+import { useTheme } from "next-themes";
 
 const Header = () => {
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
   return (
     <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
       <div className="flex justify-center">

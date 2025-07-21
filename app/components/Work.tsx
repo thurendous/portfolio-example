@@ -18,12 +18,12 @@ const Work = () => {
             style={{ backgroundImage: `url(${bgImage})` }}
             className='aspect-square bg-cover bg-center rounded-lg relative cursor-pointer group'
           >
-            <div className='bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex justify-between items-center duration-500 group-hover:bottom-7'>
+            <div className='bg-white dark:bg-darktheme w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 py-3 px-5 flex justify-between items-center duration-500 group-hover:bottom-7'>
               <div>
                 <h2 className='font-semibold text-lg'>{title}</h2>
-                <p className='text-sm text-gray-700'>{description}</p>
+                <p className='text-sm text-gray-700 dark:text-white'>{description}</p>
               </div>
-              <div className='border rounded-full border-black p-2 w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0px_0px_#000] group-hover:bg-lime-300 transition'>
+              <div className='border rounded-full border-black dark:bg-white p-2 w-9 aspect-square flex items-center justify-center shadow-[2px_2px_0px_0px_#000] group-hover:bg-lime-300 transition'>
                 <Image src={assets.send_icon} alt={title} className='w-5' />
               </div>
             </div>
